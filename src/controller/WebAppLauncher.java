@@ -1,9 +1,6 @@
 package controller;
 
-import model.Fruit;
-import model.Product;
-import model.ProductFactory;
-import model.ShoppingCart;
+import model.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -48,12 +45,19 @@ public class WebAppLauncher {
 
         maakAanEnVoegToe();
 
-        System.out.println(printList(cart1.getProducts()));
+
 
         for (Iterator<Product> iterding = cart1.getIterator(); iterding.hasNext();) {
             Product x = iterding.next();
-            System.out.println(x.printType());
+            cart1.voegActieToe(new VoegToe(x, 5));
         }
+        cart1.voerActiesUit();
+        for (Iterator<Product> iterding = cart1.getIterator(); iterding.hasNext();) {
+            Product x = iterding.next();
+            System.out.println(x);
+
+        }
+
 
     }
     public static String printList(List<Product> products){

@@ -31,6 +31,15 @@ public class Product {
     this.brand = brand;
     return this;
   }
+  public void decreaseQuantity(int amount){
+    this.quantity -= amount;
+    if (this.quantity < 0){
+      this.quantity = 0;
+    }
+  }
+  public void increaseQuantity(int amount){
+    this.quantity += amount;
+  }
 
   @Override
   public String toString() {
